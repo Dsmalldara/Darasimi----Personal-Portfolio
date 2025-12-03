@@ -1,6 +1,6 @@
 # darasimi-ssr
 
-A minimal SSR framework. React, Express, esbuild. No magic.
+A minimal SSR framework. React, Express, esbuild.
 
 ---
 
