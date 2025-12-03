@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter Variable', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  /* Dark mode (default) */
+  html.dark body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  /* Light mode */
+  html:not(.dark) body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body {
+    @apply antialiased;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Light mode color overrides */
+html:not(.dark) .bg-primary {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-primary\/80 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+html:not(.dark) .bg-secondary {
+  background-color: #f5f5f5 !important;
+}
+
+html:not(.dark) .bg-secondary\/50 {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+}
+
+html:not(.dark) .bg-secondary\/70 {
+  background-color: rgba(245, 245, 245, 0.7) !important;
+}
+
+html:not(.dark) .text-accent {
+  color: #000000 !important;
+}
+
+html:not(.dark) .text-accent\/80 {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+html:not(.dark) .text-muted {
+  color: #666666 !important;
+}
+
+html:not(.dark) .border-secondary {
+  border-color: #e5e5e5 !important;
+}
+
+html:not(.dark) .hover\:bg-secondary\/50:hover {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+}
+
+html:not(.dark) .hover\:border-muted:hover {
+  border-color: #999999 !important;
+}
+
+html:not(.dark) .group:hover .group-hover\:text-white {
+  color: #000000 !important;
+}
+
+html:not(.dark) .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .hover\:border-white\/10:hover {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) .hover\:bg-secondary\/70:hover {
+  background-color: rgba(245, 245, 245, 0.7) !important;
+}
+
+/* Experience card light mode */
+html:not(.dark) .bg-primary\/50 {
+  background-color: rgba(240, 240, 240, 0.8) !important;
+}
+
+html:not(.dark) .bg-accent {
+  background-color: #000000 !important;
+}
+
+html:not(.dark) .text-muted\/70 {
+  color: rgba(80, 80, 80, 0.9) !important;
+}
+
+/* Make experience cards more visible in light mode */
+html:not(.dark) .bg-secondary\/50 {
+  background-color: #f8f8f8 !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* Mobile sidebar light mode */
+html:not(.dark) .border-secondary\/50 {
+  border-color: rgba(229, 229, 229, 0.5) !important;
+}
+
+html:not(.dark) .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Hero Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
