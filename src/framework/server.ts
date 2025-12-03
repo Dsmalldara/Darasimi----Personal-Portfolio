@@ -19,7 +19,7 @@ const getMetaForPath = (path: string): RouteMeta => {
     const route = routes.find(r => r.path === path);
     return route?.meta || {
         title: "Darasimi Portfolio",
-        description: "Full Stack Developer Portfolio"
+        description: "Frontend Developer Portfolio"
     };
 };
 
