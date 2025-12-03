@@ -43,6 +43,11 @@ const renderApp = (req: any, res: any, next: any) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>${meta.title}</title>
                 <meta name="description" content="${meta.description}">
+                
+                <!-- Favicon -->
+                <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                <link rel="apple-touch-icon" href="/favicon.svg">
+                
                 ${meta.keywords ? `<meta name="keywords" content="${meta.keywords}">` : ''}
                 ${meta.canonical ? `<link rel="canonical" href="${meta.canonical}">` : ''}
                 
