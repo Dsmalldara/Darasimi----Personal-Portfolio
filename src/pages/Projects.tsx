@@ -6,10 +6,9 @@ import ProjectCard from '../components/ProjectCard'
 function Projects() {
   const projects = [
      {
-      title: "Custom SSR Engine",
-      description: "The framework powering this site. Built from scratch with React, Express, and esbuild to understand SSR internals — hydration, code splitting, and server rendering.",
+      title: "Custom SSR Server",
+      description: "A custom SSR server powering this portfolio. Built with React, Express, and esbuild to understand SSR internals — hydration, code splitting, and server rendering.",
       tags: ["React", "Express", "esbuild", "TypeScript"],
-      
       year: "2025",
       status: "Live" as const,
       featured: true,

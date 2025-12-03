@@ -7,7 +7,7 @@ import App from "./pages/App";
 // Import fonts (fontsource)
 import "@fontsource-variable/inter";
 import "@fontsource/instrument-serif";
-import "@fontsource/lilita-one";
+import "@fontsource-variable/space-grotesk";
 
 hydrateRoot(
   document.getElementById("root")!,

@@ -17,7 +17,7 @@ export default {
       fontFamily: {
         sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
         serif: ['Instrument Serif', 'Georgia', 'serif'],
-        display: ['Lilita One', 'cursive'],
+        display: ['Space Grotesk Variable', 'Space Grotesk', 'sans-serif'],
       },
     },
   },

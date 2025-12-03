@@ -7,8 +7,8 @@ import { SocialLink, GitHubIcon, LinkedInIcon, TwitterIcon, EmailIcon } from '..
 function Homepage() {
   const projects = [
     {
-      title: "Custom SSR Engine",
-      description: "The engine behind this site. Think Next.js, but handcrafted with React, Express, and esbuild to understand how SSR actually works under the hood.",
+      title: "Custom SSR Server",
+      description: "The server behind this site. Think Next.js, but handcrafted with React, Express, and esbuild to understand how SSR actually works under the hood.",
       tags: ["React", "Express", "esbuild","React-router", "TypeScript"],
       year: "2025",
       status: "Live" as const,
@@ -42,7 +42,7 @@ function Homepage() {
       <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
         <section className="mb-20">
           <p className="text-muted mb-4 animate-fade-in-up">Frontend Engineer</p>
-          <h1 className="font-display text-5xl md:text-6xl font-normal mb-6 animate-fade-in-up animation-delay-100">
+          <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up animation-delay-100">
             Darasimi
           </h1>
           <div className="max-w-2xl">
