@@ -44,15 +44,19 @@ const renderApp = (req: any, res: any, next: any) => {
                 <title>${meta.title}</title>
                 <meta name="description" content="${meta.description}">
                 ${meta.keywords ? `<meta name="keywords" content="${meta.keywords}">` : ''}
+                ${meta.canonical ? `<link rel="canonical" href="${meta.canonical}">` : ''}
                 
                 <!-- Open Graph / Social -->
                 <meta property="og:type" content="website">
+                <meta property="og:url" content="${meta.canonical || 'https://darasimi.dev'}">
                 <meta property="og:title" content="${meta.title}">
                 <meta property="og:description" content="${meta.description}">
+                <meta property="og:site_name" content="Darasimi">
                 ${meta.ogImage ? `<meta property="og:image" content="${meta.ogImage}">` : ''}
                 
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary_large_image">
+                <meta name="twitter:site" content="@daaboruemi">
                 <meta name="twitter:title" content="${meta.title}">
                 <meta name="twitter:description" content="${meta.description}">
                 ${meta.ogImage ? `<meta name="twitter:image" content="${meta.ogImage}">` : ''}

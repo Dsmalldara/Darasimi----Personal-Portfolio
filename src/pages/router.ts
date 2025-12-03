@@ -9,6 +9,7 @@ export interface RouteMeta {
     description: string;
     keywords?: string;
     ogImage?: string;
+    canonical?: string;
 }
 
 export interface RouteConfig {
@@ -17,23 +18,29 @@ export interface RouteConfig {
     meta: RouteMeta;
 }
 
+const BASE_URL = "https://darasimi.dev";
+
 export const routes: RouteConfig[] = [
     {
         path: "/",
         component: Homepage,
         meta: {
             title: "Darasimi | Frontend Engineer",
-            description: "Welcome to my portfolio. I'm a Frontend engineer specializing in React, Node.js, and TypeScript. Building beautiful digital experiences.",
-            keywords: "software engineer,frontend,  developer, portfolio, react, node.js, typescript",
+            description: "Frontend engineer specializing in React, TypeScript, and Node.js. Building performant web experiences with custom solutions.",
+            keywords: "darasimi, frontend engineer, react developer, typescript, node.js, portfolio",
+            ogImage: `${BASE_URL}/og-home.png`,
+            canonical: BASE_URL,
         }
     },
     {
         path: "/projects",
         component: Projects,
         meta: {
-            title: "Projects | Dada Darasimi",
-            description: "A collection of projects including AI-powered tools, event management systems, and high-fidelity landing pages.",
-            keywords: "projects, portfolio, web development, react, next.js, typescript",
+            title: "Projects | Darasimi",
+            description: "A collection of projects including AI-powered tools, custom SSR engines, and high-fidelity landing pages built with React and TypeScript.",
+            keywords: "darasimi projects, web development, react projects, next.js, typescript",
+            ogImage: `${BASE_URL}/og-projects.png`,
+            canonical: `${BASE_URL}/projects`,
         }
     },
     {
@@ -41,8 +48,10 @@ export const routes: RouteConfig[] = [
         component: About,
         meta: {
             title: "About | Darasimi",
-            description: "Learn more about me, my skills, and my journey as a software engineer.",
-            keywords: "about, software engineer, skills, experience",
+            description: "Frontend engineer passionate about performance, clean code, and building tools that solve real problems.",
+            keywords: "about darasimi, frontend engineer, software developer, experience",
+            ogImage: `${BASE_URL}/og-about.png`,
+            canonical: `${BASE_URL}/about`,
         }
     }
 ]
