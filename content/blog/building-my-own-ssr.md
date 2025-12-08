@@ -66,7 +66,7 @@ res.send(`
 `);
 ```
 
-my build.ts was setup with esbuild is similar to this
+my build.ts was setup similar to this
 
 ```typescript
 import esbuild from "esbuild";
@@ -145,15 +145,26 @@ A mental model to avoid this match is by keeping browser-only code out of the in
    }, []);
    ```
 
-  for my blog contents, I read markdown files on the server using Node's fs module, parse them, and pass the data to the client through serialization:.   to enable client side hydration.
+   for my blog contents, I read markdown files on the server using Node's fs module, parse them, and pass the data to the client through serialization to enable client side hydration.
 
-   
-    // Serialize blog data for client hydration
-        const blogDataScript = (blogData.posts || blogData.post) 
-            ? `<script>window.__BLOG_DATA__ = ${JSON.stringify(blogData)};</script>`
-            : '';
-  
-  On the client, I read `window.__BLOG_DATA__` during hydration to avoid refetching the same data. 
+```typescript
+// Serialize blog data for client hydration
+const blogDataScript = (blogData.posts || blogData.post) 
+  ? `<script>window.__BLOG_DATA__ = ${JSON.stringify(blogData)};</script>`
+  : '';
+
+res.send(`
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <div id="root">${html}</div>
+      ${blogDataScript}
+    </body>
+  </html>
+`);
+```
+
+On the client, I read `window.__BLOG_DATA__` during hydration to avoid refetching the same data.
 
 ## Code splitting in SSR applications
 
@@ -167,7 +178,8 @@ const gsapModule = await import('gsap');
 
 ## Deciding when you need client-side navigation and SPA feel in an SSR APP
 
-After First paint with SSR, switching to SPA and client-side rendering is pretty much the standard approach  when doing SSR. With this you get the advantages of SSR and fast navigation of SPAs. For my blog pages which require asynchronous data fetching, I use React Router's Link and prefetch blog content on hover (onMouseEnter) to achieve this SPA feel.
+After First paint with SSR, the page hydrates and subsequent navigations use 
+client-side routing. With this you get the advantages of SSR and fast navigation of SPAs. For my blog pages which require asynchronous data fetching, I use React Router's Link and prefetch blog content on hover (onMouseEnter) to achieve this SPA feel.
 On the blog post page, I use useEffect to check the cache first, then fetch if the data wasn't prefetched.
 
 ```
@@ -194,6 +206,6 @@ Building a custom SSR server gave me a much deeper understanding of what framewo
 - Prefetching on hover creates a smooth SPA experience after initial SSR
 - For production, you'd want proper code splitting, streaming, and error boundaries
 
-For a portfolio site, this barebones setup works great. For a production app, I would  reach for Next.js or TanStack Start.
+For a portfolio site, this barebones setup works great. For a complex app, I would  reach for Next.js or TanStack Start.
 
-This implmentation powers my portfolio you can check out the code on [GitHub](https://github.com/Dsmalldara/Darasimi----Personal-Portfolio).
+This implementation powers my portfolio you can check out the code on [GitHub](https://github.com/Dsmalldara/Darasimi----Personal-Portfolio).

@@ -133,17 +133,17 @@ function BlogPost() {
           <div 
             className="prose prose-invert max-w-none font-sans
               prose-headings:font-sans prose-headings:font-bold prose-headings:text-white
-              prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-              prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4
-              prose-p:text-lg prose-p:text-gray-200 prose-p:leading-loose prose-p:my-6
+              prose-h1:text-2xl sm:prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
+              prose-h2:text-xl sm:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-gray-700 prose-h2:pb-3
+              prose-h3:text-lg sm:prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-h3:text-gray-100
+              prose-p:text-base sm:prose-p:text-lg prose-p:text-gray-200 prose-p:leading-loose prose-p:my-6
               prose-a:text-cyan-400 prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-cyan-300
               prose-strong:text-white prose-strong:font-bold
               prose-em:italic prose-em:text-gray-200
               prose-code:before:content-none prose-code:after:content-none
               prose-pre:my-8 prose-pre:overflow-x-auto
               prose-blockquote:border-l-4 prose-blockquote:border-cyan-400/30 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300 prose-blockquote:my-6
-              prose-ul:text-lg prose-ol:text-lg prose-ul:space-y-3 prose-ol:space-y-3 prose-ul:my-6 prose-ol:my-6
+              prose-ul:text-base sm:prose-ul:text-lg prose-ol:text-base sm:prose-ol:text-lg prose-ul:space-y-3 prose-ol:space-y-3 prose-ul:my-6 prose-ol:my-6
               prose-li:text-gray-200 prose-li:leading-relaxed prose-li:marker:text-gray-400
               prose-img:rounded-lg prose-img:my-8
               prose-hr:border-gray-800 prose-hr:my-8"
