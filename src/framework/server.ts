@@ -4,6 +4,7 @@ import { renderToString,  } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import App from "../pages/App";
 import { routes, RouteMeta } from "../pages/router";
+import { getAllPosts, getPostBySlug, BlogPost, BlogPostMeta } from "../lib/blog";
 
 const app = express();
 app.use('/dist', express.static('dist'));
@@ -13,9 +14,34 @@ app.use(express.static('public')); // Serve images and static assets
 app.get('/resume.pdf', (req, res) => {
     res.sendFile('resume.pdf', { root: '.' });
 });
+app.get('/api/posts', (req,res)=>{
+    const posts = getAllPosts();
+    if(posts.length == 0){
+        return res.status(400).json({data:[]})
+    }
+    return res.status(200).json({data:posts})
+})
+app.get('/api/posts/:slug',(req,res)=>{
+  const { slug } = req.params;
+  const post = getPostBySlug(slug);
+  if(!post) {
+    return res.status(404).json({data:null})
+  }
+  return res.status(200).json({data:post})
+})
 
-// Find meta for current route
-const getMetaForPath = (path: string): RouteMeta => {
+// Find meta for current route (with dynamic blog post handling)
+const getMetaForPath = (path: string, blogPost?: BlogPost | null): RouteMeta => {
+    // Handle dynamic blog post routes
+    if (path.startsWith('/blog/') && blogPost) {
+        return {
+            title: `${blogPost.title} | Darasimi`,
+            description: blogPost.excerpt,
+            keywords: blogPost.tags.join(', '),
+            canonical: `https://darasimi.dev/blog/${blogPost.slug}`,
+        };
+    }
+    
     const route = routes.find(r => r.path === path);
     return route?.meta || {
         title: "Darasimi Portfolio",
@@ -23,18 +49,41 @@ const getMetaForPath = (path: string): RouteMeta => {
     };
 };
 
+// Get blog data for a given path
+const getBlogData = (path: string): { posts?: BlogPostMeta[]; post?: BlogPost | null } => {
+    if (path === '/blog') {
+        return { posts: getAllPosts() };
+    }
+    
+    const blogPostMatch = path.match(/^\/blog\/(.+)$/);
+    if (blogPostMatch) {
+        const slug = blogPostMatch[1];
+        return { post: getPostBySlug(slug) };
+    }
+    
+    return {};
+};
+
 const renderApp = (req: any, res: any, next: any) => {
     // Skip if already handled by static middleware
     if (res.headersSent) return next();
     
-    const meta = getMetaForPath(req.path);
+    // Get blog data if on a blog route
+    const blogData = getBlogData(req.path);
+    const meta = getMetaForPath(req.path, blogData.post);
     
     try{
         const html = renderToString(
             React.createElement(StaticRouter, { location: req.url },
-                React.createElement(App)
+                React.createElement(App, { initialData: blogData })
             )
         );
+        
+        // Serialize blog data for client hydration
+        const blogDataScript = (blogData.posts || blogData.post) 
+            ? `<script>window.__BLOG_DATA__ = ${JSON.stringify(blogData)};</script>`
+            : '';
+        
          res.send(`
             <!DOCTYPE html>
             <html lang="en" class="dark">
@@ -70,6 +119,7 @@ const renderApp = (req: any, res: any, next: any) => {
             </head>
             <body>
                 <div id="root">${html}</div>
+                ${blogDataScript}
                 <script type="module" src="/dist/client.js"></script>
             </body>
             </html>

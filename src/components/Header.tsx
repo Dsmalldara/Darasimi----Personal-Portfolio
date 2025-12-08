@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobileSidebar from "./MobileSidebar";
+import { prefetchBlogsList } from "../pages/Blog";
 
 function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
   return (
@@ -24,13 +25,14 @@ function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
   );
 }
 
-function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+function NavLink({ to, children, onMouseEnter }: { to: string; children: React.ReactNode; onMouseEnter?: () => void }) {
   const location = useLocation();
   const isActive = location.pathname === to;
   
   return (
     <Link 
-      to={to} 
+      to={to}
+      onMouseEnter={onMouseEnter}
       className={`relative hover:text-muted pb-2 ${isActive ? 'text-accent' : ''}`}
     >
       {children}
@@ -57,6 +59,7 @@ function Header() {
           {/* Desktop nav */}
           <div className="hidden md:flex gap-6">
             <NavLink to="/projects">Projects</NavLink>
+            <NavLink to="/blog" onMouseEnter={prefetchBlogsList}>Blog</NavLink>
             <NavLink to="/about">About</NavLink>
             <a 
               href="/resume.pdf" 

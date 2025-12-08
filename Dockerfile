@@ -26,9 +26,6 @@ RUN pnpm install --frozen-lockfile
 # Copy built assets
 COPY --from=build /app/dist ./dist
 
-# Copy source (needed for tsx to run server)
-COPY --from=build /app/src ./src
-
 # Copy static assets
 COPY --from=build /app/public ./public
 COPY --from=build /app/resume.pdf ./resume.pdf

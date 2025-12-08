@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ProjectCard from '../components/ProjectCard'
@@ -91,8 +92,8 @@ function Homepage() {
           </div>
           
           {/* View all projects CTA */}
-          <a 
-            href="/projects" 
+          <Link
+            to="/projects" 
             className="group flex items-center justify-center gap-2 mt-10 py-4 border border-secondary hover:border-accent rounded-lg transition-all duration-300 hover:bg-secondary/30"
           >
             <span className="text-muted group-hover:text-accent transition-colors">View all projects</span>
@@ -104,7 +105,7 @@ function Homepage() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </section>
       </main>
 

@@ -175,3 +175,80 @@ html:not(.dark) .bg-black\/60 {
 .animation-delay-600 {
   animation-delay: 0.6s;
 }
+
+/* Syntax Highlighting for Code Blocks */
+pre {
+  background-color: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  border-radius: 0.5rem !important;
+  padding: 1.5rem !important;
+  overflow-x: auto !important;
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+code {
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+  font-size: 0.875rem !important;
+}
+
+/* Highlight.js Token Colors (VS Code Dark Theme) */
+.hljs {
+  color: #e2e8f0 !important;
+  background: transparent !important;
+}
+
+.hljs-literal,
+.hljs-number {
+  color: #f59e0b !important;
+}
+
+.hljs-string,
+.hljs-title.class_.inherited__,
+.hljs-attr {
+  color: #10b981 !important;
+}
+
+.hljs-keyword,
+.hljs-built_in {
+  color: #c084fc !important;
+}
+
+.hljs-function,
+.hljs-title {
+  color: #60a5fa !important;
+}
+
+.hljs-params,
+.hljs-attr {
+  color: #93c5fd !important;
+}
+
+.hljs-comment {
+  color: #6b7280 !important;
+}
+
+.hljs-addition {
+  color: #10b981 !important;
+}
+
+.hljs-deletion {
+  color: #ef4444 !important;
+}
+
+.hljs-operator {
+  color: #f87171 !important;
+}
+
+.hljs-punctuation {
+  color: #d1d5db !important;
+}
+
+.hljs-tag {
+  color: #f87171 !important;
+}
+
+.hljs-attr {
+  color: #fbbf24 !important;
+}

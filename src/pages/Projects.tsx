@@ -38,7 +38,7 @@ function Projects() {
     },
     {
       title: "Whipevents",
-      description: "A production-ready event management system with secure authentication, payment processing, role-based access control (RBAC), and a complete event publishing workflow.",
+      description: "An event management system with secure authentication, payment processing, role-based access control (RBAC), and a complete event publishing workflow.",
       tags: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Tailwind CSS"],
       link: "https://whipevents.vercel.app",
       year: "2024",

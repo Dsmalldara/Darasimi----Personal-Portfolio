@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { prefetchBlogsList } from '../pages/Blog';
 
 
 let gsapModule: typeof import('gsap') | null = null;
@@ -18,6 +19,7 @@ function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
   const menuItems = [
     { path: '/', label: 'Home' },
     { path: '/projects', label: 'Projects' },
+    { path: '/blog', label: 'Blog' },
     { path: '/about', label: 'About' },
     { path: '/resume.pdf', label: 'Resume', external: true },
   ];
@@ -152,6 +154,7 @@ function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
               <Link
                 key={item.path}
                 to={item.path}
+                onMouseEnter={item.label === 'Blog' ? prefetchBlogsList : undefined}
                 className={`group py-4 border-b border-secondary/50 ${
                   location.pathname === item.path ? 'text-accent' : ''
                 }`}

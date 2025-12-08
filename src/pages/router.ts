@@ -2,6 +2,8 @@ import React from "react";
 import Homepage from "./Homepage";
 import Projects from "./Projects";
 import About from "./About";
+import Blog from "./Blog";
+import BlogPost from "./BlogPost";
 
 
 export interface RouteMeta {
@@ -52,6 +54,26 @@ export const routes: RouteConfig[] = [
             keywords: "about darasimi, frontend engineer, software developer, experience",
             ogImage: `${BASE_URL}/og-about.png`,
             canonical: `${BASE_URL}/about`,
+        }
+    },
+    {
+        path: "/blog",
+        component: Blog,
+        meta: {
+            title: "Blog | Darasimi",
+            description: "Thoughts on frontend development, React internals, and building things from scratch.",
+            keywords: "darasimi blog, frontend blog, react tutorials, web development",
+            ogImage: `${BASE_URL}/og-blog.png`,
+            canonical: `${BASE_URL}/blog`,
+        }
+    },
+    {
+        path: "/blog/:slug",
+        component: BlogPost,
+        meta: {
+            title: "Blog | Darasimi",
+            description: "Blog post",
+            canonical: `${BASE_URL}/blog`,
         }
     }
 ]
