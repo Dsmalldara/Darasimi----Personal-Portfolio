@@ -26,6 +26,9 @@ RUN pnpm install --frozen-lockfile
 # Copy built assets
 COPY --from=build /app/dist ./dist
 
+# Copy blog content
+COPY --from=build /app/content ./content
+
 # Copy static assets
 COPY --from=build /app/public ./public
 COPY --from=build /app/resume.pdf ./resume.pdf
