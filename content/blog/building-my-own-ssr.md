@@ -86,6 +86,7 @@ const clientContext = await esbuild.context({
     sourcemap: true,
 });
 // Only build server for production
+// Only build server for production
 if (buildServer) {
     await esbuild.build({
         entryPoints: ["src/framework/server.ts"],
@@ -96,7 +97,7 @@ if (buildServer) {
         format: "esm",
         target: ["node20"],
         loader:{".ts": "ts", ".js": "js"},
-        external: ["react", "react-dom", "express"],
+        external: ["react", "react-dom", "express", "fs", "path", "marked", "gray-matter", "isomorphic-dompurify", "highlight.js"],
     }).catch(() => process.exit(1));
     console.log(" Server built for production");
 }
