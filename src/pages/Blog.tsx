@@ -132,7 +132,7 @@ function Blog() {
         <section className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Blog</h1>
           <p className="text-muted text-lg">
-            Thoughts on frontend development, React internals, and building things from scratch.
+            Articles on React, modern web development, and frontend architecture.
           </p>
         </section>
 
