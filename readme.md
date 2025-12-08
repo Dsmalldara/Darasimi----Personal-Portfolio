@@ -6,7 +6,7 @@ A minimal SSR framework. React, Express, esbuild.
 
 ## Overview
 
-Custom server-side rendering engine powering [darasimi.dev](https://darasimi.dev).
+Custom server-side rendering server powering [darasimi.dev](https://darasimi.dev).
 
 Built for control over the rendering pipeline — routing, meta tags, code splitting, hydration — without the abstractions of Next.js or Remix.
 
