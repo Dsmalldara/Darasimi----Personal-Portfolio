@@ -176,7 +176,7 @@ For my portfolio, I kept things simple - the only dynamic import I used was for 
 const gsapModule = await import('gsap');
 ```
 
-## Deciding when you need client-side navigation and SPA feel in an SSR APP
+## When Do You Need Client-Side Navigation in an SSR App?
 
 After First paint with SSR, the page hydrates and subsequent navigations use 
 client-side routing. With this you get the advantages of SSR and fast navigation of SPAs. For my blog pages which require asynchronous data fetching, I use React Router's Link and prefetch blog content on hover (onMouseEnter) to achieve this SPA feel.
