@@ -136,36 +136,56 @@ function Blog() {
           </p>
         </section>
 
-        <div className="space-y-8">
+        <div className="grid gap-6">
           {posts.length === 0 ? (
-            <p className="text-muted">No posts yet. Check back soon!</p>
+            <p className="text-muted text-center py-12">No posts yet. Check back soon!</p>
           ) : (
             posts.map((post) => (
               <article key={post.slug} className="group">
-          <Link 
-            to={`/blog/${post.slug}`}
-            onMouseEnter={() => preloadBlogPost(post)}
-          className="block">
-                  <div className="border border-secondary rounded-lg p-6 transition-all duration-300 hover:border-accent/50 hover:bg-secondary/30">
-                    <div className="flex items-center gap-3 text-sm text-muted mb-3">
-                      <time>{new Date(post.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}</time>
-                      <span>•</span>
-                      <div className="flex gap-2">
+                <Link 
+                  to={`/blog/${post.slug}`}
+                  onMouseEnter={() => preloadBlogPost(post)}
+                  className="block h-full"
+                >
+                  <div className="h-full bg-white dark:bg-secondary/20 border-2 border-gray-200 dark:border-white rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-gray-300 dark:hover:border-white hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-accent/10">
+                    {/* Metadata */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-secondary/30">
+                      <time className="text-xs sm:text-sm font-medium text-gray-600 dark:text-muted/70 uppercase tracking-wide">
+                        {new Date(post.date).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })}
+                      </time>
+                      <div className="flex flex-wrap gap-2">
                         {post.tags.map(tag => (
-                          <span key={tag} className="text-accent/70">{tag}</span>
+                          <span 
+                            key={tag} 
+                            className="text-xs font-semibold px-2 py-1 bg-blue-50 dark:bg-accent/20 text-blue-600 dark:text-accent/90 rounded-full"
+                          >
+                            {tag}
+                          </span>
                         ))}
                       </div>
                     </div>
-                    <h2 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
+
+                    {/* Title */}
+                    <h2 className="text-lg sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-gray-900/60 dark:group-hover:text-white transition-all duration-200 line-clamp-2">
                       {post.title}
                     </h2>
-                    <p className="text-muted leading-relaxed">
+
+                    {/* Excerpt */}
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3 mb-4">
                       {post.excerpt}
                     </p>
+
+                    {/* Read More Link */}
+                    <div className="flex items-center text-accent dark:text-cyan-400 font-semibold text-sm group-hover:gap-2 transition-all duration-200">
+                      Read article
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                 </Link>
               </article>

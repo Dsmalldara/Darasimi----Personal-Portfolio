@@ -39,7 +39,7 @@ export const routes: RouteConfig[] = [
         component: Projects,
         meta: {
             title: "Projects | Darasimi",
-            description: "A collection of projects including AI-powered tools, custom SSR engines, and high-fidelity landing pages built with React and TypeScript.",
+            description: "A collection of projects including AI-powered tools, custom SSR server, and high-fidelity landing pages built with React and TypeScript.",
             keywords: "darasimi projects, web development, react projects, next.js, typescript",
             ogImage: `${BASE_URL}/og-projects.png`,
             canonical: `${BASE_URL}/projects`,
@@ -61,7 +61,7 @@ export const routes: RouteConfig[] = [
         component: Blog,
         meta: {
             title: "Blog | Darasimi",
-            description: "Thoughts on frontend development, React internals, and building things from scratch.",
+            description: "Articles on React, modern web development, and frontend architecture.",
             keywords: "darasimi blog, frontend blog, react tutorials, web development",
             ogImage: `${BASE_URL}/og-blog.png`,
             canonical: `${BASE_URL}/blog`,
