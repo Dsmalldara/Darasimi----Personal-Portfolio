@@ -10,8 +10,8 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY . .
 
-# Build client bundle and CSS
-RUN pnpm run build
+# Build client bundle and CSS with server bundling
+RUN BUILD_SERVER=true pnpm run build
 
 # --- Stage 2: Production ---
 FROM node:20-alpine AS production
