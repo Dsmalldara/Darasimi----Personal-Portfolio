@@ -128,9 +128,7 @@ const renderApp = (req: any, res: any, next: any) => {
                 
                 <link rel="stylesheet" href="/dist/styles.css">
             </head>
-            <body>
-                <div id="root">${html}</div>
-                ${blogDataScript}
+            <bo
                 <script type="module" src="/dist/client.js"></script>
             </body>
             </html>

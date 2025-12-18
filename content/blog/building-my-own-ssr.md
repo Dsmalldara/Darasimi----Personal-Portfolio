@@ -1,7 +1,7 @@
 ---
 title: "Building an SSR Server for My Portfolio from Scratch: The Internals"
 slug: "building-my-own-ssr"
-date: "2025-12-04"
+date: "2025-12-08"
 excerpt: "Deep dive into building a custom SSR server: hydration mechanics, data serialization, code splitting, and how to combine SSR with SPA navigation for the best of both worlds."
 tags: ["React", "SSR", "TypeScript"]
 ---

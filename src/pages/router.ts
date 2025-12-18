@@ -29,8 +29,8 @@ export const routes: RouteConfig[] = [
         meta: {
             title: "Darasimi | Frontend Engineer",
             description: "Frontend engineer specializing in React, TypeScript, and Node.js. Building performant web experiences with custom solutions.",
-            keywords: "darasimi, frontend engineer, react developer, typescript, node.js, portfolio",
-            ogImage: `${BASE_URL}/og-home.png`,
+            keywords: "darasimi, dada darasimi, software developer, react, website developer,  frontend engineer, react developer, typescript, node.js, portfolio",
+            ogImage: `${BASE_URL}/favicon.svg`,
             canonical: BASE_URL,
         }
     },
@@ -41,7 +41,6 @@ export const routes: RouteConfig[] = [
             title: "Projects | Darasimi",
             description: "A collection of projects including AI-powered tools, custom SSR server, and high-fidelity landing pages built with React and TypeScript.",
             keywords: "darasimi projects, web development, react projects, next.js, typescript",
-            ogImage: `${BASE_URL}/og-projects.png`,
             canonical: `${BASE_URL}/projects`,
         }
     },
@@ -52,7 +51,6 @@ export const routes: RouteConfig[] = [
             title: "About | Darasimi",
             description: "Frontend engineer passionate about performance, clean code, and building tools that solve real problems.",
             keywords: "about darasimi, frontend engineer, software developer, experience",
-            ogImage: `${BASE_URL}/og-about.png`,
             canonical: `${BASE_URL}/about`,
         }
     },
@@ -63,7 +61,6 @@ export const routes: RouteConfig[] = [
             title: "Blog | Darasimi",
             description: "Articles on React, modern web development, and frontend architecture.",
             keywords: "darasimi blog, frontend blog, react tutorials, web development",
-            ogImage: `${BASE_URL}/og-blog.png`,
             canonical: `${BASE_URL}/blog`,
         }
     },
@@ -73,7 +70,7 @@ export const routes: RouteConfig[] = [
         meta: {
             title: "Blog | Darasimi",
             description: "Blog post",
-            canonical: `${BASE_URL}/blog`,
+            canonical: "", // Will be dynamically set per post in server.ts
         }
     }
 ]

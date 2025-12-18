@@ -25,14 +25,13 @@ function HamburgerIcon({ isOpen }: { isOpen: boolean }) {
   );
 }
 
-function NavLink({ to, children, onMouseEnter }: { to: string; children: React.ReactNode; onMouseEnter?: () => void }) {
+function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   const location = useLocation();
   const isActive = location.pathname === to;
   
   return (
     <Link 
-      to={to}
-      onMouseEnter={onMouseEnter}
+      to={to} 
       className={`relative hover:text-muted pb-2 ${isActive ? 'text-accent' : ''}`}
     >
       {children}
@@ -59,7 +58,18 @@ function Header() {
           {/* Desktop nav */}
           <div className="hidden md:flex gap-6">
             <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/blog" onMouseEnter={prefetchBlogsList}>Blog</NavLink>
+            <Link 
+              to="/blog"
+              onMouseEnter={prefetchBlogsList}
+              className={`relative hover:text-muted pb-2 ${location.pathname === '/blog' ? 'text-accent' : ''}`}
+            >
+              Blog
+              <span 
+                className={`absolute bottom-0 left-0 h-[2px] bg-accent transition-all duration-300 ${
+                  location.pathname === '/blog' ? 'w-full' : 'w-0'
+                }`}
+              />
+            </Link>
             <NavLink to="/about">About</NavLink>
             <a 
               href="/resume.pdf" 
