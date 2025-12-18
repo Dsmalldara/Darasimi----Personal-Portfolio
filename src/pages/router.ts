@@ -70,7 +70,7 @@ export const routes: RouteConfig[] = [
         meta: {
             title: "Blog | Darasimi",
             description: "Blog post",
-            canonical: "", // Will be dynamically set per post in server.ts
+            canonical: `${BASE_URL}/blog`,
         }
     }
 ]

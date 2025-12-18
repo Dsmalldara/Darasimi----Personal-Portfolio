@@ -103,14 +103,11 @@ const renderApp = (req: any, res: any, next: any) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>${escapeHtml(meta.title)}</title>
                 <meta name="description" content="${escapeHtml(meta.description)}">
-                
                 <!-- Favicon -->
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
                 <link rel="apple-touch-icon" href="/favicon.svg">
-                
                 ${meta.keywords ? `<meta name="keywords" content="${escapeHtml(meta.keywords)}">` : ''}
                 ${meta.canonical ? `<link rel="canonical" href="${escapeHtml(meta.canonical)}">` : ''}
-                
                 <!-- Open Graph / Social -->
                 <meta property="og:type" content="website">
                 <meta property="og:url" content="${escapeHtml(meta.canonical || 'https://darasimi.dev')}">
@@ -118,17 +115,17 @@ const renderApp = (req: any, res: any, next: any) => {
                 <meta property="og:description" content="${escapeHtml(meta.description)}">
                 <meta property="og:site_name" content="Darasimi">
                 ${meta.ogImage ? `<meta property="og:image" content="${escapeHtml(meta.ogImage)}">` : ''}
-                
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary_large_image">
                 <meta name="twitter:site" content="@daaboruemi">
                 <meta name="twitter:title" content="${escapeHtml(meta.title)}">
                 <meta name="twitter:description" content="${escapeHtml(meta.description)}">
                 ${meta.ogImage ? `<meta name="twitter:image" content="${escapeHtml(meta.ogImage)}">` : ''}
-                
                 <link rel="stylesheet" href="/dist/styles.css">
             </head>
-            <bo
+            <body>
+                <div id="root">${html}</div>
+                ${blogDataScript}
                 <script type="module" src="/dist/client.js"></script>
             </body>
             </html>

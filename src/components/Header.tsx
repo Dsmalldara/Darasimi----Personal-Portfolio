@@ -46,6 +46,7 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
 
 function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <>
